@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Titles from './components/titles';
 import Form from './components/form';
@@ -46,23 +45,32 @@ class App extends Component {
   }
 }
 
-resetForm = () => {
-  document.getElementById("weather-form").reset();
-}
   
   render() {
     return (
       <div className="App">
-        <Titles />
-        <Form loadWeather={this.getWeather}/>
-        <Weather 
-        temperature={this.state.temperature}
-        city={this.state.city}
-        country={this.state.country}
-        humidity={this.state.humidity}
-        description={this.state.description}
-        error={this.state.error}
-        />
+        <div className="wrapper">
+          <div className="main">
+            <div className="container">
+              <div className="row">
+              <div className="col-xs-5 title-container">
+              <Titles />
+              </div>
+              <div className="col-xs-7 form-container">
+              <Form loadWeather={this.getWeather}/>
+              <Weather 
+              temperature={this.state.temperature}
+              city={this.state.city}
+              country={this.state.country}
+              humidity={this.state.humidity}
+              description={this.state.description}
+              error={this.state.error}
+              />
+              </div>
+              </div>
+            </div>    
+        </div>
+        </div>
       </div>
     );
   }
